@@ -1,0 +1,13 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background: #E9E9E9;
+    color: #1E1F5A;
+}
+.post-card {
+    background: #F0F0F0;
+}
