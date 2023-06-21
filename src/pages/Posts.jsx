@@ -4,10 +4,9 @@ import { useLoaderData } from 'react-router-dom'
 
 const Posts = () => {
   const posts = useLoaderData();
-  console.log(posts);
 
   return (
-    <div>
+    <div className=' grid grid-cols-3 gap-10 my-10'>
       {
         posts.length > 0 && 
         posts.map((post) => (
