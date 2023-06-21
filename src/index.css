@@ -9,5 +9,8 @@
     color: #1E1F5A;
 }
 .post-card {
-    background: #F0F0F0;
+    background: rgb(245, 243, 243);
+}
+.date {
+    color: #595a80;
 }

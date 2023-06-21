@@ -2,6 +2,7 @@ import { createBrowserRouter, RouterProvider} from 'react-router-dom';
 import Main from './layout/Main';
 import Posts from './pages/Posts';
 import CreatePost from './pages/CreatePost';
+import { loader as postsLoader } from './pages/Posts';
 
 function App() {
   const router = createBrowserRouter([
@@ -9,7 +10,7 @@ function App() {
       path: '/',
       element: <Main />,
       children: [
-        {index: true, element: <Posts />},
+        {index: true, element: <Posts />, loader: postsLoader},
         {path: '/create-post', element: <CreatePost />}
       ]
     }
