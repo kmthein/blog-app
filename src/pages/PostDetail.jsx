@@ -1,9 +1,9 @@
 import React from "react";
 import PostDetailCard from "../components/PostDetailCard";
-import { redirect, useLoaderData, useNavigate } from "react-router-dom";
+import { redirect, useLoaderData, useNavigate, useRouteLoaderData } from "react-router-dom";
 
 const PostDetail = () => {
-  const post = useLoaderData();
+  const post = useRouteLoaderData("post-detail");
 
   return (
     <>
@@ -16,6 +16,7 @@ export default PostDetail;
 
 export const loader = async ({ request, params }) => {
   const response = await fetch(`http://localhost:8080/posts/${params.id}`);
+
   if (!response.ok) {
     return redirect('/');
   } else {
@@ -24,13 +25,17 @@ export const loader = async ({ request, params }) => {
   }
 };
 
-export const action = async ({request, params}) => {
+export const action = async ({ request, params }) => {
   const response = await fetch(`http://localhost:8080/posts/${params.id}`, {
-    method: request.method
-  })
-  if(!response.ok){
-    // return redirect('/');
-  } else {
-    return redirect('/');
-  }
+    method: request.method,
+})
+
+if(response.status === 422) {
+    return response;
 }
+
+if(!response.ok) {
+    throw new Error("")
+} 
+return redirect('/');
+};

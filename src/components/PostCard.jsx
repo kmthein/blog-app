@@ -7,7 +7,7 @@ const PostCard = ({ post }) => {
 
   return (
     <div className="post-card w-[100%] mx-auto pb-5 rounded-md mb-2">
-      <Link to={`/post-detail/${id}`}>
+      <Link to={`${id}`}>
         <img
           src={image}
           className="w-full h-[200px] rounded-t-md object-cover mx-auto "
@@ -15,7 +15,7 @@ const PostCard = ({ post }) => {
         />
       </Link>
       <div className="ml-6 my-2">
-        <Link to={`/post-detail/${id}`}>
+        <Link to={`${id}`}>
           <p className="font-bold post-card py-2 pr-2">{title}</p>
         </Link>
         <div className="flex items-center gap-2 bg-white">

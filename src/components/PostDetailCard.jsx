@@ -9,10 +9,13 @@ const PostDetailCard = ({ post }) => {
   const submit = useSubmit();
 
   const deletePostHandler = () => {
-    const confirmStatus = window.confirm("Are you sure to delete this post?");
-    if(confirmStatus) {
-      submit(null, {method: "DELETE"})
-    } 
+    const confirmStatus = window.confirm(
+      "Are you sure want to delete this post ?"
+    );
+
+    if (confirmStatus) {
+      submit(null, {method: "DELETE"});
+    }
   }
 
   return (
@@ -31,12 +34,10 @@ const PostDetailCard = ({ post }) => {
       <img src={image} className="pt-3 h-[400px] mx-auto my-5" alt="" />
       <p className="mx-auto text-left leading-relaxed py-5">{description}</p>
       <div className="flex gap-3 justify-end mb-5">
-        <Link to={`/edit/${id}`}>
+        <Link to={`edit-post`}>
           <button className="bg-indigo-950 text-white w-[60px] py-1">Edit</button>
         </Link>
-        <Form>
           <button onClick={deletePostHandler} className="bg-red-700 text-white w-[60px] py-1">Delete</button>
-        </Form>
       </div>
     </div>
     </>
